@@ -1,0 +1,60 @@
+<?php
+include("../koneksi.php");
+
+if(!isset($_GET['id_montir'])){
+     header('Location: tampilmontir.php');
+}
+
+$id_montir = $_GET['id_montir'];
+$query = mysqli_query($db, "SELECT * FROM kendaraan WHERE id_montir = '$id_montir'");
+$data = mysqli_fetch_assoc($query);
+
+if(mysqli_num_rows($query) < 1){
+    die("data tidak ditemukan");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Update Montir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="updatemontir.php" method="post" >
+        <h1>Montir</h1>
+    <table>
+        <h2>Form Update Montir</h2>
+        <tr>
+            <td>ID Montir</td>
+            <td>:</td>
+            <td><input type="hidden" name="id_montir" placeholder="masukan id montir" value="<?php echo $data ['id_montir']?>" required></td>
+        </tr>
+        <tr>
+            <td>Nama Montir</td>
+            <td>:</td>
+            <td><input type="text" name="nama_montir" placeholder="masukan nama montir" value="<?php echo $data ['nama_montir']?>" required></td>
+        </tr>
+        <tr>
+            <td><label>Alamat</label></td>
+            <td>:</td>
+            <td><input type="text area" name="alamat"placeholder="masukan alamat" value="<?php echo $data ['alamat']?>" required></td>
+            </tr>
+        <tr>
+            <td>No Telpon</td>
+            <td>:</td>
+            <td>
+                <input type="number" name="no_telp"placeholder="masukan no telpon" value="<?php echo $data['no_telp'] ?>" required>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><button name="submit" type="submit">Kirim</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
