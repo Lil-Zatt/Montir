@@ -1,0 +1,12 @@
+<?php
+include "../koneksi.php";
+$id_montir=$_POST['id_montir'];
+$nama_montir=$_POST['nama_montir'];
+$alamat=$_POST['alamat'];
+$no_telp=$_POST['no_telp'];
+$simpan= mysqli_query ($db, "insert into montir values ('$id_montir','$nama_montir','$alamat','$no_telp')");
+
+if($simpan){
+    include "tampilmontir.php";
+}
+?>
