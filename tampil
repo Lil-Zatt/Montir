@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampil Montir</title>
+</head>
+<body>
+<a href="formmontir.php">(+) TAMBAH DATA</a>
+    <h2>DATA MONTIR</h2>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Id Montir</th>
+            <th>Nama Montir</th>
+            <th>Alamat</th>
+            <th>No Telpon</th>
+            <th>Aksi</th>
+        </tr>
+        <?php
+        include "../koneksi.php";
+        $no = 1;
+        $query = mysqli_query($db, "SELECT * FROM montir");
+        while($data = mysqli_fetch_array($query)){
+            ?>
+            <tr>
+                <td><?php echo $no++?></td>
+                <td><?php echo $data['id_montir']?></td>
+                <td><?php echo $data['nama_montir']?></td>
+                <td><?php echo $data['alamat']?></td>
+                <td><?php echo $data['no_telp']?></td>
+
+                <td>
+                    <a href="form-updatemontir.php?id_montir=<?php echo $data['id_montir']?>">update</a>
+                    <a href="hapusmontir.php?id_montir=<?php echo $data['id_montir']?>">hapus</a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+</body>
+</html>
