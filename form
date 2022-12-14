@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Montir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="simpanmontir.php" method="post" >
+        <h1>MONTIR</h1>
+    <table>
+        <h2> Form Montir</h2>
+        <tr>
+            <td>ID Montir</td>
+            <td>:</td>
+            <td><input type="number" name="id_montir" placeholder="masukan id montir"></td>
+        </tr>
+        <tr>
+            <td>Nama Montir</td>
+            <td>:</td>
+            <td><input type="text" name="nama_montir" placeholder="masukan nama montir"></td>
+        </tr>
+        <tr>
+            <td><label>alamat</label></td>
+            <td>:</td>
+            <td><input type="text area" name="alamat"placeholder="masukan alamat"></td>
+            </tr>
+        <tr>
+            <td>no telpon</td>
+            <td>:</td>
+            <td><input type="number" name="no_telp"></td>
+        </tr>
+        
+        <tr>
+            <td><button name="submit" type="submit">Kirim</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
