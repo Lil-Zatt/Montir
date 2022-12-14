@@ -1,0 +1,14 @@
+<?php
+include "../koneksi.php";
+if( isset ($_GET["id_montir"])){
+    $id_montir = $_GET['id_montir'];
+
+    $hapus = mysqli_query ($db, "DELETE FROM montir WHERE id_montir = '$id_montir'");
+
+    if($hapus) {
+        header('location: tampilmontir.php');
+    }else {
+        die("gagal menghapus...");
+    }
+}
+?>
