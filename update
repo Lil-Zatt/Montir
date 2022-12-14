@@ -1,0 +1,17 @@
+<?php
+include "../koneksi.php";
+    $id_montir=$_POST['id_montir'];
+    $nama_montir=$_POST['nama_montir'];
+    $alamat=$_POST['alamat'];
+    $no_telp=$_POST['no_telp'];
+
+    $sql = "UPDATE montir SET nama_montir='$nama_montir', alamat='$alamat', no_telp='$no_telp', WHERE id_montir=$id_montir";
+    $query = mysqli_query($db, $sql);
+
+    if($query) {
+        header('location: tampilmontir.php');
+    }else {
+        die("gagal mengupdate...");
+    }
+
+?>
